@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Departure Times</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="edit_search_station_hint">Amsterdam Centraal</string>
+    <string name="button_search">Search!</string>
+
     <string name="action_settings">Settings</string>
 </resources>
