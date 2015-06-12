@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -17,6 +19,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void searchStation(View view){
         //Do something here to search the station
+        EditText stationQuery = (EditText) findViewById(R.id.edit_station_query);
+        TextView resultLabel = (TextView) findViewById(R.id.label_query_result);
+
+        resultLabel.setText(stationQuery.getText());
     }
 
     @Override
