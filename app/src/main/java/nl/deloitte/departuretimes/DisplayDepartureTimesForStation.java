@@ -1,9 +1,11 @@
 package nl.deloitte.departuretimes;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class DisplayDepartureTimesForStation extends ActionBarActivity {
@@ -11,7 +13,16 @@ public class DisplayDepartureTimesForStation extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_display_departure_times_for_station);
+
+        //Get the incoming Intent
+        Intent intent = getIntent();
+        String departureStation = intent.getStringExtra(MainActivity.EXTRA_DEPARTURE_STATION);
+
+        TextView resultLabel = (TextView) findViewById(R.id.label_query_result);
+
+        resultLabel.setText(departureStation);
     }
 
 

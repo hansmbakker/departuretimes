@@ -1,5 +1,6 @@
 package nl.deloitte.departuretimes;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
+    public final static String EXTRA_DEPARTURE_STATION = "nl.deloitte.departuretimes.DEPARTURE_STATION";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +23,12 @@ public class MainActivity extends ActionBarActivity {
     public void searchStation(View view){
         //Do something here to search the station
         EditText stationQuery = (EditText) findViewById(R.id.edit_station_query);
-        TextView resultLabel = (TextView) findViewById(R.id.label_query_result);
 
-        resultLabel.setText(stationQuery.getText());
+        Intent intent = new Intent(this, DisplayDepartureTimesForStation.class);
+        String departure_station = stationQuery.getText().toString();
+        intent.putExtra(EXTRA_DEPARTURE_STATION, departure_station);
+
+        startActivity(intent);
     }
 
     @Override
