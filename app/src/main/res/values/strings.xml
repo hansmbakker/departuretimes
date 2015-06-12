@@ -4,5 +4,7 @@
     <string name="edit_search_station_hint">Amsterdam Centraal</string>
     <string name="button_search">Search!</string>
 
+    <string name="label_search_result">Search a station using the text input first</string>
+
     <string name="action_settings">Settings</string>
 </resources>

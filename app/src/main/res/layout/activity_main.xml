@@ -3,15 +3,32 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical" >
 
-    <EditText android:id="@+id/edit_station_query"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_search_station_hint" />
-    <Button
+        android:orientation="horizontal" >
+
+        <EditText android:id="@+id/edit_station_query"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_search_station_hint" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_search"/>
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_search" />
+
+        android:padding="16dp"
+
+        android:text="@string/label_search_result"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"/>
+
 </LinearLayout>
