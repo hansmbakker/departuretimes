@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -63,10 +64,10 @@ public class DataManager {
     // This class is used to pass the needed information to the download task
     private class ProcessDownloadParams{
         public ProcessDownloadParams(String url, TextView textView){
-            //this.url = url;
+            this.url = url;
             this.textView = textView;
         }
-        public String url = "http://www.google.nl/";
+        public String url;
         public TextView textView;
     }
 
@@ -110,7 +111,15 @@ public class DataManager {
 
         try {
             URL url = new URL(location);
+            String user = mContext.getResources().getString(R.string.user);
+            String pass = mContext.getResources().getString(R.string.pass);
+            String userpass = user + ":" + pass;
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            String encoded = Base64.encodeToString(userpass.getBytes(), Base64.NO_WRAP);
+            conn.setRequestProperty("Authorization", "Basic "+encoded);
+
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(15000 /* milliseconds */);
             conn.setRequestMethod("GET");
