@@ -24,6 +24,26 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
+        final List<Station> stationList = DataManager.GetStationList();
+
+        ArrayAdapter<Station> myAdapter = new ArrayAdapter<Station>(this,
+                android.R.layout.simple_list_item_2, android.R.id.text1, stationList){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                Station station = stationList.get(position);
+                text1.setText(station.Name);
+                text2.setText(station.Type);
+                return view;
+            }
+        };
+
+        // assign the list adapter
+        setListAdapter(myAdapter);
     }
 
     /*
