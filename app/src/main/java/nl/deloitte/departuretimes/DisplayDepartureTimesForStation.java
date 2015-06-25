@@ -22,7 +22,9 @@ public class DisplayDepartureTimesForStation extends ActionBarActivity {
 
         TextView resultLabel = (TextView) findViewById(R.id.label_query_result);
 
-        resultLabel.setText(departureStation);
+        //resultLabel.setText(departureStation);
+        DataManager dataManager = new DataManager(this);
+        dataManager.SetEersteVertrektijdInTextView(departureStation, resultLabel);
     }
 
 
