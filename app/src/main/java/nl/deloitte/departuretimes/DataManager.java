@@ -17,8 +17,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import nl.deloitte.departuretimes.data.actuelevertrektijden.ActueleVertrekTijden;
+import nl.deloitte.departuretimes.data.actuelevertrektijden.VertrekkendeTrein;
 import nl.deloitte.departuretimes.data.stations.Station;
 import nl.deloitte.departuretimes.data.stations.Stations;
 
@@ -43,7 +46,16 @@ public class DataManager {
         return stationList;
     }
 
-    public void SetEersteVertrektijdInTextView(String stationCode, TextView textView){
+    public ArrayList<VertrekkendeTrein> ParseVertrekkendeTreinen(String vertrekkendeTreinenXml){
+        PojoXml pojoXml = PojoXmlFactory.createPojoXml();
+
+        ActueleVertrekTijden actueleVertrekTijden = (ActueleVertrekTijden) pojoXml.getPojo(vertrekkendeTreinenXml, ActueleVertrekTijden.class);
+        ArrayList<VertrekkendeTrein> vertrekkendeTreinenList = actueleVertrekTijden.getVertrekkendeTreinenList();
+
+        return vertrekkendeTreinenList;
+    }
+
+    public void CallVertrekkendeTreinenApi(String stationCode, ApiResponseConsumer consumer){
 
         ConnectivityManager connMgr = (ConnectivityManager)
                 mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -51,24 +63,24 @@ public class DataManager {
         if (networkInfo != null && networkInfo.isConnected()) {
             String url = "http://webservices.ns.nl/ns-api-avt?station=" + stationCode;
             // download from the url in the background
-            ProcessDownloadParams params = new ProcessDownloadParams(url, textView);
-            new DownloadWebpageTask().execute(params);
+            ProcessDownloadParams params = new ProcessDownloadParams(url, consumer);
+            new DownloadFromUrlTask().execute(params);
 
         } else {
             // display error
-            textView.setText("Network not available");
+            consumer.HandleError("Network not available");
         }
 
     }
 
     // This class is used to pass the needed information to the download task
     private class ProcessDownloadParams{
-        public ProcessDownloadParams(String url, TextView textView){
+        public ProcessDownloadParams(String url, ApiResponseConsumer consumer){
             this.url = url;
-            this.textView = textView;
+            this.consumer = consumer;
         }
         public String url;
-        public TextView textView;
+        public ApiResponseConsumer consumer;
     }
 
     // Uses AsyncTask to create a task away from the main UI thread. This task takes a
@@ -76,7 +88,7 @@ public class DataManager {
     // has been established, the AsyncTask downloads the contents of the webpage as
     // an InputStream. Finally, the InputStream is converted into a string, which is
     // displayed in the UI by the AsyncTask's onPostExecute method.
-    private class DownloadWebpageTask extends AsyncTask<ProcessDownloadParams, Void, String> {
+    private class DownloadFromUrlTask extends AsyncTask<ProcessDownloadParams, Void, String> {
 
         private ProcessDownloadParams mParams[];
 
@@ -88,14 +100,14 @@ public class DataManager {
                 mParams = processParams;
                 return downloadUrl(mParams[0].url);
             } catch (IOException e) {
-                return "Unable to retrieve web page. URL may be invalid.";
+                return "Unable to retrieve data from url. URL may be invalid.";
             }
         }
 
-        // onPostExecute displays the results of the AsyncTask.
+        // onPostExecute processes the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            mParams[0].textView.setText(result);
+            mParams[0].consumer.HandleDownloadResponse(result);
         }
 
     }

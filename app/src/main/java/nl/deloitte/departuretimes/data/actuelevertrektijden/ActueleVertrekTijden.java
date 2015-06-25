@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class ActueleVertrekTijden
 {
-    public ArrayList<VertrekkendeTrein> getStationList(){return new ArrayList<VertrekkendeTrein>(Arrays.asList(VertrekkendeTrein));}
+    public ArrayList<VertrekkendeTrein> getVertrekkendeTreinenList(){return new ArrayList<VertrekkendeTrein>(Arrays.asList(VertrekkendeTrein));}
 
     //generated code below
 
