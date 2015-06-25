@@ -13,8 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import nl.deloitte.departuretimes.data.stations.Station;
 
 
 public class MainActivity extends ListActivity {
@@ -22,14 +23,16 @@ public class MainActivity extends ListActivity {
     public final static String EXTRA_DEPARTURE_STATION = "nl.deloitte.departuretimes.DEPARTURE_STATION";
     public final static String EXTRA_DEPARTURE_STATION_CODE = "nl.deloitte.departuretimes.DEPARTURE_STATION_CODE";
 
-    private final List<Station> stationList = DataManager.GetStationList();
+    public DataManager dataManager;
+    public List<Station> stationList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-
-
+        dataManager = new DataManager(this);
+        stationList = dataManager.GetStationList();
         ArrayAdapter<Station> myAdapter = new ArrayAdapter<Station>(this,
                 android.R.layout.simple_list_item_2, android.R.id.text1, stationList){
             @Override
@@ -39,8 +42,8 @@ public class MainActivity extends ListActivity {
                 TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
                 Station station = stationList.get(position);
-                text1.setText(station.Name);
-                text2.setText(station.Type);
+                text1.setText(station.getNamen().getLang());
+                text2.setText(station.getType());
                 return view;
             }
         };
@@ -54,7 +57,7 @@ public class MainActivity extends ListActivity {
         //This method will be called when an item in the list is selected.
 
         Intent intent = new Intent(this, DisplayDepartureTimesForStation.class);
-        String departure_stationCode = stationList.get(position).Code;
+        String departure_stationCode = stationList.get(position).getCode();
         intent.putExtra(EXTRA_DEPARTURE_STATION_CODE, departure_stationCode);
 
         startActivity(intent);

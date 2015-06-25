@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Stations>
+    <Station>
+        <Code>ASA</Code>
+        <Type>intercitystation</Type>
+        <Namen>
+            <Kort>Amstel</Kort>
+            <Middel>Amsterdam Amstel</Middel>
+            <Lang>Amsterdam Amstel</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400057</UICCode>
+        <Lat>52.3466682434082</Lat>
+        <Lon>4.91777801513672</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASB</Code>
+        <Type>knooppuntStoptreinstation</Type>
+        <Namen>
+            <Kort>Bijlmer A</Kort>
+            <Middel>Bijlmer ArenA</Middel>
+            <Lang>Amsterdam Bijlmer ArenA</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400074</UICCode>
+        <Lat>52.3122215270996</Lat>
+        <Lon>4.94694423675537</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASD</Code>
+        <Type>megastation</Type>
+        <Namen>
+            <Kort>A'dam C</Kort>
+            <Middel>Amsterdam C.</Middel>
+            <Lang>Amsterdam Centraal</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400058</UICCode>
+        <Lat>52.3788871765137</Lat>
+        <Lon>4.90027761459351</Lon>
+        <Synoniemen>
+            <Synoniem>Amsterdam</Synoniem>
+        </Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASHD</Code>
+        <Type>stoptreinstation</Type>
+        <Namen>
+            <Kort>Holendrcht</Kort>
+            <Middel>Holendrecht</Middel>
+            <Lang>Amsterdam Holendrecht</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400231</UICCode>
+        <Lat>52.29844</Lat>
+        <Lon>4.95972</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASDL</Code>
+        <Type>stoptreinstation</Type>
+        <Namen>
+            <Kort>Lelylaan</Kort>
+            <Middel>Lelylaan</Middel>
+            <Lang>Amsterdam Lelylaan</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400079</UICCode>
+        <Lat>52.3577766418457</Lat>
+        <Lon>4.83388900756836</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASDM</Code>
+        <Type>stoptreinstation</Type>
+        <Namen>
+            <Kort>Muiderprt</Kort>
+            <Middel>Muiderpoort</Middel>
+            <Lang>Amsterdam Muiderpoort</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400060</UICCode>
+        <Lat>52.3605537414551</Lat>
+        <Lon>4.93111133575439</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>RAI</Code>
+        <Type>stoptreinstation</Type>
+        <Namen>
+            <Kort>A'dam RAI</Kort>
+            <Middel>Amsterdam RAI</Middel>
+            <Lang>Amsterdam RAI</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400056</UICCode>
+        <Lat>52.3372230529785</Lat>
+        <Lon>4.89027786254883</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASSP</Code>
+        <Type>stoptreinstation</Type>
+        <Namen>
+            <Kort>Scienceprk</Kort>
+            <Middel>Science Park</Middel>
+            <Lang>Amsterdam Science Park</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400235</UICCode>
+        <Lat>52.35526</Lat>
+        <Lon>4.94651</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASS</Code>
+        <Type>knooppuntIntercitystation</Type>
+        <Namen>
+            <Kort>Sloterdijk</Kort>
+            <Middel>Sloterdijk</Middel>
+            <Lang>Amsterdam Sloterdijk</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400059</UICCode>
+        <Lat>52.3888893127441</Lat>
+        <Lon>4.83777761459351</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>VMW</Code>
+        <Type>facultatiefStation</Type>
+        <Namen>
+            <Kort>vd Madeweg</Kort>
+            <Middel>Van der Madeweg</Middel>
+            <Lang>Amsterdam Van der Madeweg</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400078</UICCode>
+        <Lat>52.330134</Lat>
+        <Lon>4.92975</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+    <Station>
+        <Code>ASDZ</Code>
+        <Type>intercitystation</Type>
+        <Namen>
+            <Kort>A'dam Z</Kort>
+            <Middel>Amsterdam Zuid</Middel>
+            <Lang>Amsterdam Zuid</Lang>
+        </Namen>
+        <Land>NL</Land>
+        <UICCode>8400061</UICCode>
+        <Lat>52.3388900756836</Lat>
+        <Lon>4.871666431427</Lon>
+        <Synoniemen></Synoniemen>
+    </Station>
+</Stations>
