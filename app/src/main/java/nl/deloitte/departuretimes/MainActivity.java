@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.view.ViewGroup;
 
@@ -19,13 +20,15 @@ import java.util.List;
 public class MainActivity extends ListActivity {
 
     public final static String EXTRA_DEPARTURE_STATION = "nl.deloitte.departuretimes.DEPARTURE_STATION";
+    public final static String EXTRA_DEPARTURE_STATION_CODE = "nl.deloitte.departuretimes.DEPARTURE_STATION_CODE";
 
+    private final List<Station> stationList = DataManager.GetStationList();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        final List<Station> stationList = DataManager.GetStationList();
+
 
         ArrayAdapter<Station> myAdapter = new ArrayAdapter<Station>(this,
                 android.R.layout.simple_list_item_2, android.R.id.text1, stationList){
@@ -44,6 +47,17 @@ public class MainActivity extends ListActivity {
 
         // assign the list adapter
         setListAdapter(myAdapter);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id){
+        //This method will be called when an item in the list is selected.
+
+        Intent intent = new Intent(this, DisplayDepartureTimesForStation.class);
+        String departure_stationCode = stationList.get(position).Code;
+        intent.putExtra(EXTRA_DEPARTURE_STATION_CODE, departure_stationCode);
+
+        startActivity(intent);
     }
 
     /*

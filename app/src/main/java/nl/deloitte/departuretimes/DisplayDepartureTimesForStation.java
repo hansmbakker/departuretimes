@@ -18,7 +18,7 @@ public class DisplayDepartureTimesForStation extends ActionBarActivity {
 
         //Get the incoming Intent
         Intent intent = getIntent();
-        String departureStation = intent.getStringExtra(MainActivity.EXTRA_DEPARTURE_STATION);
+        String departureStation = intent.getStringExtra(MainActivity.EXTRA_DEPARTURE_STATION_CODE);
 
         TextView resultLabel = (TextView) findViewById(R.id.label_query_result);
 
